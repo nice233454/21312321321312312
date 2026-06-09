@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Премиальное приглашение — Александр и Мария</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-loader"></div>
+    
+    <!-- Музыкальный плеер -->
+    <div class="music-player" id="musicPlayer">
+        <div class="music-icon">🎵</div>
+        <audio id="bgMusic" loop>
+            <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663745840465/MsgeRRXbxURjgoRG.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- Бегущая строка -->
+    <div class="marquee-black">
+        <div class="marquee-track">
+            <span>ALEXANDER & MARIA • 25.12.2026 • ПРИГЛАШЕНИЕ НА СВАДЬБУ • ALEXANDER & MARIA • 25.12.2026 • ПРИГЛАШЕНИЕ НА СВАДЬБУ •</span>
+            <span>ALEXANDER & MARIA • 25.12.2026 • ПРИГЛАШЕНИЕ НА СВАДЬБУ • ALEXANDER & MARIA • 25.12.2026 • ПРИГЛАШЕНИЕ НА СВАДЬБУ •</span>
+        </div>
+    </div>
+    
+    <main class="main-container">
+        <section class="hero-section">
+            <div class="overlay"></div>
+            <div class="content-wrapper fade-in">
+                <span class="pre-title">Официальное приглашение</span>
+                <h1 class="names">Александр <br> <span class="ampersand">&</span> <br> Мария</h1>
+                <div class="date-hero">25.12.2026</div>
+            </div>
+        </section>
+
+        <section class="details-section">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Мы приглашаем вас</h2>
+                    <p class="intro-text">Дорогие друзья и близкие! Мы будем бесконечно рады видеть вас на нашем торжестве, посвященном созданию нашей семьи. Ваше присутствие — лучший подарок для нас.</p>
+                </div>
+
+                <div class="timer-container fade-in">
+                    <h3>До события осталось:</h3>
+                    <div class="countdown-timer" data-target-date="2026-12-25T18:00:00">
+                        <div class="timer-block">
+                            <span id="days">00</span>
+                            <label>Дней</label>
+                        </div>
+                        <div class="timer-block">
+                            <span id="hours">00</span>
+                            <label>Часов</label>
+                        </div>
+                        <div class="timer-block">
+                            <span id="minutes">00</span>
+                            <label>Минут</label>
+                        </div>
+                        <div class="timer-block">
+                            <span id="seconds">00</span>
+                            <label>Секунд</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-grid fade-in">
+                    <div class="info-card">
+                        <div class="icon">📅</div>
+                        <h4>Когда</h4>
+                        <p class="val">25 декабря 2026</p>
+                        <p class="sub-val">Начало в 17:00</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="icon">📍</div>
+                        <h4>Где</h4>
+                        <p class="val">Отель "The Ritz-Carlton"</p>
+                        <p class="sub-val">ул. Тверская, 3, Москва</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="icon">👔</div>
+                        <h4>Дресс-код</h4>
+                        <p class="val">Black Tie Optional</p>
+                        <p class="sub-val">Соблюдение стиля приветствуется</p>
+                    </div>
+                </div>
+
+                <!-- Блок с картой -->
+                <div class="map-section fade-in">
+                    <h3>Место проведения</h3>
+                    <div class="map-wrapper">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.068!2d37.6117!3d55.7578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTXCsDQ1JzI4LjEiTiAzN8KwMzYnNDIuMSJF!5e0!3m2!1sru!2sru!4v1623234567890!5m2!1sru!2sru" width="100%" height="300" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <div class="rsvp-section fade-in">
+                    <p class="guest-name-slot">Уважаемый гость,</p>
+                    <p class="rsvp-text">Пожалуйста, подтвердите ваше присутствие до 1 декабря, чтобы мы могли подготовиться к встрече с вами.</p>
+                    <a href="#" class="btn-premium">Подтвердить участие</a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>Ждем вас с нетерпением!</p>
+            <div class="gold-divider"></div>
+        </footer>
+    </main>
+
+    <script src="../timer.js"></script>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Параллакс фона
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            document.querySelector('.hero-section').style.backgroundPositionY = -(scrolled * 0.5) + 'px';
+        });
+
+        // Музыка
+        const musicPlayer = document.getElementById('musicPlayer');
+        const audio = document.getElementById('bgMusic');
+        musicPlayer.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                musicPlayer.classList.add('playing');
+            } else {
+                audio.pause();
+                musicPlayer.classList.remove('playing');
+            }
+        });
+    </script>
+</body>
+</html>
